@@ -9,6 +9,7 @@ public class Video implements Serializable {
     private String name;
     private String Path;
     private String Type;
+    @JsonIgnore
     private String desc;
 
     public int getNo() {
