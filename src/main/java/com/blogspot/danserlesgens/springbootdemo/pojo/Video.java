@@ -1,23 +1,25 @@
 package com.blogspot.danserlesgens.springbootdemo.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 
+@Alias("Video")
 public class Video implements Serializable {
-    private int no;
+    private int id;
     private String name;
     private String Path;
     private String Type;
     @JsonIgnore
     private String desc;
 
-    public int getNo() {
-        return no;
+    public int getId() {
+        return id;
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

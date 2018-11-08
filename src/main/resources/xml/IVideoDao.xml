@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogspot.danserlesgens.springbootdemo.dao.IVideoDao">
+    <resultMap id="VideoResultMap" type="Video">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="path" column="path"/>
+        <result property="type" column="type"/>
+        <result property="desc" column="desc"/>
+
+    </resultMap>
+
+    <insert id="insert" parameterType="Video">
+        INSERT INTO video
+        VALUES (#{id},#{name},#{path},#{type},#{desc})
+    </insert>
+
+    <update id="update" parameterType="Video">
+        UPDATE video SET
+        name = #{name},
+        path = #{path},
+        type = #{type},
+        desc = #{desc},
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Video">
+        DELETE FROM video
+        WHERE id = #{id}
+    </delete>
+    <select id="selectById" parameterType="int" resultMap="VideoResultMap">
+        SELECT * FROM video where id =#{id}
+    </select>
+
+    <select id="selectListByAll" resultMap="VideoResultMap">
+        SELECT * FROM video
+    </select>
+    
+</mapper>
+
